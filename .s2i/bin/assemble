@@ -1,13 +1,17 @@
 #!/bin/bash
-echo "Before assembling"
 
-/usr/libexec/s2i/assemble
-rc=$?
+echo "Start assemble"
 
-if [ $rc -eq 0 ]; then
-    echo "After successful assembling"
-else
-    echo "After failed assembling"
+# Restore maven dependencies
+if [ -d /tmp/artifacts/.m2 ]; then
+  echo "---> Restoring maven artifacts..."
+  mv /tmp/artifacts/.m2 ${HOME}/
+
+
+# Compile
+if [ "$(ls -A /tmp/src)" ]; then
+  pushd /tmp/src > /dev/null
+  mvn clean package
+  mkdir -p /opt/app
+  mv /tmp/src/target/quarkus-app/quarkus-run.jar
 fi
-
-exit $rc
