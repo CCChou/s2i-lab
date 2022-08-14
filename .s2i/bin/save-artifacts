@@ -2,6 +2,8 @@
 
 echo "Start save artificats"
 
+exec /usr/libexec/s2i/save-artifacts
+
 # Stream the .m2 folder tar archive to stdout
 if [ -d ${HOME}/.m2 ]; then
     pushd ${HOME} > /dev/null

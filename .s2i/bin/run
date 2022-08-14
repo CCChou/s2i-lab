@@ -1,3 +1,5 @@
 #!/bin/bash -e
 
+exec /usr/libexec/s2i/run
+
 java -jar /opt/app/quarkus-run.jar
