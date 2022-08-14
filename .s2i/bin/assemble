@@ -2,6 +2,8 @@
 
 echo "Start assemble"
 
+exec /usr/libexec/s2i/assemble
+
 # Restore maven dependencies
 if [ -d /tmp/artifacts/.m2 ]; then
   echo "---> Restoring maven artifacts..."
