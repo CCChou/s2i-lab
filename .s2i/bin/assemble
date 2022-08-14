@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+echo "Start assemble"
+
 # Restore maven dependencies
 if [ -d /tmp/artifacts/.m2 ]; then
   echo "---> Restoring maven artifacts..."

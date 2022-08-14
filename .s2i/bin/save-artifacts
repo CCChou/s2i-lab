@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+echo "Start save artificats"
+
 # Stream the .m2 folder tar archive to stdout
 if [ -d ${HOME}/.m2 ]; then
     pushd ${HOME} > /dev/null
