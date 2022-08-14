@@ -12,6 +12,6 @@ if [ -d /tmp/artifacts/.m2 ]; then
 if [ "$(ls -A /tmp/src)" ]; then
   pushd /tmp/src > /dev/null
   mvn clean package
-  mkdir -p /opt/greeting
+  mkdir -p /opt/app
   mv /tmp/src/target/quarkus-app/quarkus-run.jar
 fi

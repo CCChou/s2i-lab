@@ -1,3 +1,3 @@
 #!/bin/bash -e
 
-java -jar /opt/greeting/quarkus-run.jar
+java -jar /opt/app/quarkus-run.jar
