@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo "Start assemble"
+
+exec /usr/libexec/s2i/assemble
+
+# Restore maven dependencies
+if [ -d /tmp/artifacts/.m2 ]; then
+  echo "---> Restoring maven artifacts..."
+  mv /tmp/artifacts/.m2 ${HOME}/
+
+# Compile
+if [ "$(ls -A /tmp/src)" ]; then
+  pushd /tmp/src > /dev/null
+  mvn clean package
+  mkdir -p /opt/app
+  mv /tmp/src/target/quarkus-app/quarkus-run.jar
+fi
