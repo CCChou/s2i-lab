@@ -1,0 +1,5 @@
+#!/bin/bash -e
+
+echo "---project assemble---"
+
+exec /usr/libexec/s2i/assemble
